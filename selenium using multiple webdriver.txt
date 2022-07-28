@@ -1,0 +1,42 @@
+package selenium12;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class multipledriver
+{
+
+	public static void main(String[] args) 
+	{
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\\\Users\\\\Sanket Kamble\\\\Desktop\\\\dhano\\\\chromedriver_win32 (7)\\\\chromedriver.exe");
+		WebDriver obj=new ChromeDriver();
+		obj.get("https://about.facebook.com");
+		System.out.println(obj.getCurrentUrl());
+		
+		obj.get("https://www.selenium.dev/");
+		System.out.println(obj.getTitle());
+	
+		obj.quit();
+		
+		WebDriver ch=new ChromeDriver();
+		ch.get("https://web.whatsapp.com/");
+		System.out.println(ch.getCurrentUrl());
+		if(ch.getCurrentUrl().contains("com"))
+		{
+			System.out.println("login");
+		}
+		else
+		{
+			System.out.println("logout");
+		}
+		
+		ch.get("https://faq.whatsapp.com/web/?locale=en_US");
+        System.out.println(ch.getTitle());
+		
+		ch.quit();
+		
+
+	}
+
+}

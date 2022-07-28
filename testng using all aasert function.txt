@@ -1,0 +1,56 @@
+public class aaestlogic
+
+{
+	WebDriver ch;
+  @Test
+  public void assertloginfailandpass() 
+  
+  {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sanket Kamble\\Desktop\\dhano\\chromedriver_win32 (7)\\chromedriver.exe");
+	  ch=new ChromeDriver();
+	  ch.get("https://www.google.com/");
+	  ch.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")).sendKeys("orangehrm" , Keys.ENTER);
+	  String ExpectedTitle = "orangehrm - Google Search";
+	  String ActualTitle = ch.getTitle();
+	  Assert.assertEquals( ExpectedTitle,ActualTitle );  //assertequale
+	  System.out.println(ch.getTitle());
+	  
+  }
+ @Test
+	   public void asserttrue()
+	   {
+	    String mytitle  = "orangehrm - Google Search";
+		Assert.assertTrue(	mytitle.contains("orangehrm - Google Search" )); //aaserttrue 
+        System.out.println(" cantian");
+	   }
+
+	   @Test
+	   public void assertfalse()
+	   {
+	    String mytitle  = "orangehrm - Google Search";
+	   Assert.assertFalse(mytitle.contains("oabc"),("name not match")); //assertflase
+		System.out.println("not match");
+	   }
+@Test
+	   public void assertsame()
+	   {
+		   
+		 String ExpectedTitle = "orangehrm - Google Search";
+		 String ActualTitle = ch.getTitle();
+		Assert.assertSame(ActualTitle, ExpectedTitle); //assertsame
+		System.out.println("same");
+	   }
+	   
+	   @Test
+	   public void  notequalto()
+	   {
+		 String ExpectedTitle = "orangehrm - Google Searchh";
+	     String ActualTitle = ch.getTitle();
+		Assert.assertNotEquals(ActualTitle, ExpectedTitle ); //assertnotequal
+		System.out.println("not match");
+		ch.quit();
+	   }
+	   
+ }
+
+

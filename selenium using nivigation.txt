@@ -1,0 +1,32 @@
+package selenium12;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class namelocator {
+
+	public static void main(String[] args) throws InterruptedException
+	{
+	System.setProperty("webdriver.chrome.driver", "C:\\\\\\\\Users\\\\\\\\Sanket Kamble\\\\\\\\Desktop\\\\\\\\dhano\\\\\\\\chromedriver_win32 (7)\\\\\\\\chromedriver.exe");
+	WebDriver ch =new ChromeDriver();
+	ch.manage().window().maximize();
+	ch.get("https://www.facebook.com/");
+	
+	ch.findElement(By.xpath("//*[text()='Create New Account']")).click();
+	Thread.sleep(2000);
+	ch.findElement(By.xpath("//input[@name='firstname']")).sendKeys("dhanu");
+	ch.findElement(By.name("lastname")).sendKeys("bhalerao");
+	ch.findElement(By.name("reg_email__")).sendKeys("dhanu@gmai.com");
+	ch.findElement(By.name("reg_passwd__")).sendKeys("Dhanu@12");
+	ch.findElement(By.name("birthday_day")).sendKeys("15");
+	ch.findElement(By.name("birthday_month")).sendKeys("october");
+	ch.findElement(By.name("birthday_year")).sendKeys("1996");
+	ch.findElement(By.xpath("//*[@id=\"u_3_2_hs\"]")).click();
+	Thread.sleep(3000);
+	ch.quit();
+				
+	}
+
+}
